@@ -1,0 +1,88 @@
+<div ui-content-for="title">
+  <span>KNIRV APPLICATION</span>
+</div>
+
+<div class="scrollable"     ng-controller="UserController">
+ <div class="scrollable-content section">
+
+
+  <form role="form" name="currentUserForm" noValidate ng-submit='loadInvestorAgreement(currentUserForm)'>
+    <fieldset>
+      <legend>USER INFO<span class="fa fa-user pull-left"></span></legend>
+        <div class="form-group has-success has-feedback">
+            <label>Email</label>
+            <input name="email" type="email" required ng-model="currentUser.email" class="form-control " placeholder="Enter email">
+            <span class="KnirvFormErrorMsg" ng-show="currentUserForm.email.$invalid && currentUserForm.$submitted ">The email is required.</span>
+
+        </div>
+		    <div class="form-group">
+            <label>Username</label>
+            <input name="userName"  type="text"   required	ng-model="currentUser.userName"   class="form-control" placeholder="Username">
+            <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.userName.$invalid && currentUserForm.$submitted">The username is required.</span>
+
+        </div>
+        <a   class="btn btn-danger btn-block" >
+          reset password
+        </a>
+        <div class="form-group">
+          <label>First Name</label>
+          <input name="firstName"  type="text" class="form-control" required ng-model="currentUser.firstName" placeholder="first name">
+          <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.firstName.$invalid && currentUserForm.$submitted">The first Name confirmation is required.</span>
+
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input name="lastName"  type="text" class="form-control" required ng-model="currentUser.lastName" placeholder="last name">
+          <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.lastName.$invalid && currentUserForm.$submitted">The last Name confirmation is required.</span>
+
+        </div>
+    </fieldset>
+    <hr>
+	<fieldset>
+      <legend>Adress</legend>
+        <!--<div class="form-group">
+              <input id="searchTextField"  type="text" class="form-control disableTap" placeholder="write address here">
+        </div>-->
+    <div class="form-group">
+          <label>Street Address</label>
+          <input type="text" name="route" class="form-control" required ng-model="currentUser.shippingAddress.streetAddress" placeholder="Street address">
+          <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.route.$invalid && currentUserForm.$submitted">The street address is required.</span>
+    </div>
+    <div class="form-group">
+         <label>City</label>
+         <input type="text" name ="locality"  class="form-control"	 required ng-model="currentUser.shippingAddress.city" placeholder="City">
+         <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.locality.$invalid && currentUserForm.$submitted">The city is required.</span>
+     </div>
+     <div class="form-group">
+          <label>Province/State/Region</label>
+          <input type="text"  class="form-control"  name ="administrative_area_level_1" required  ng-model="currentUser.shippingAddress.region"   placeholder="Province/State/Region">
+          <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.administrative_area_level_1.$invalid && currentUserForm.$submitted">The last Name confirmation is required.</span>
+    </div>
+    <div class="form-group">
+        <label>Postal code/Zip code</label>
+        <input type="text" name ="postal_code"  class="form-control"  required  ng-model="currentUser.shippingAddress.zipcode"   placeholder="Postal code/Zip code">
+        <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.postal_code.$invalid && currentUserForm.$submitted">The last Name confirmation is required.</span>
+    </div>
+		<div class="form-group">
+          <label>Country</label>
+          <input type="text" class="form-control" name="country" required ng-model="currentUser.shippingAddress.country" placeholder="Country">
+          <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.country.$invalid && currentUserForm.$submitted">The last Name confirmation is required.</span>
+    </div>
+
+	</fieldset>
+    <div class="notices-container">
+      <div ng-repeat="notice in notices"
+        drag-to-dismiss="deleteNotice(notice)"
+        class="section section-break">
+        <i class="fa fa-{{notice.icon}}"></i> {{notice.message}}
+      </div>
+    </div>
+    <button   class="btn btn-primary btn-block" >
+      Submit
+    </button>
+    <span class="KnirvFormErrorMsg" ng-show=" currentUserForm.$invalid && currentUserForm.$submitted">The form is not filled well</span>
+  </form>
+
+
+ </div>
+</div>
